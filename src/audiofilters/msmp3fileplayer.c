@@ -179,7 +179,7 @@ static int mp3_player_open(MSFilter *f, void *arg) {
 			d->is_mp3 = 1;
 			int encoding;
 			mpg123_getformat(d->mpg123, &d->rate, &d->nchannels, &encoding);			
-			d->samplesize = mpg123_encsize(encoding);
+			d->samplesize = mpg123_encsize(encoding) / d->nchannels;
 			//d->samplesize = 2;
 			d->hsize = 0;
 			d->is_raw = FALSE; 
